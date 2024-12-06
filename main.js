@@ -61,7 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (layout[i] === 3) {
             squares[i].classList.add('power-pellet');
         }
-        // do not need to loop through 4 since they are empty
+        // don't need to loop through 4 as they are empty
+        
+    }
   }
   createBoard();
+
+  // draw pac-man onto the board
+  let pacmanCurrentIndex = 498;
+  squares[pacmanCurrentIndex].classList.add('pac-man');
 });
