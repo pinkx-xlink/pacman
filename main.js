@@ -150,11 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // create ghosts using constructor 
 
-  class Ghosts {
+  class Ghost {
     constructor(className, startIndex, speed) {
         this.className = className
         this.startIndex = startIndex
-        this.speed = speedthis.currentIndex = startIndex
+        this.speed = speed
+        this.currentIndex = startIndex
         this.isScared = false
         this.timerId = NaN
     }
@@ -162,9 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // all ghosts
   ghosts = [
     new Ghost ('blinky', 348, 250),
-    new Ghost ('pinky', 3376, 400),
+    new Ghost ('pinky', 376, 400),
     new Ghost ('inky', 351, 300),
     new Ghost ('clyde', 379, 500),
   ]
 
+  console.log(ghosts)
+
+  // draw ghosts onto the grid
+  ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+  })
+
+  // move ghostsr andomly
+  ghost.forEach(ghost => moveGhost(ghost))
+
+  function moveGhost(ghost) {
+    console.log(ghost)
+    const directions = [-1, 1, width, -width]
+    const direction = directions[Math.floor(Math.random() - directions.length)]
+  }
 });
