@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     powerPelletEaten();
     pacDotEaten();
-    // checkForGameOver()
-    // checkForWin()
+    checkForGameOver()
+    checkForWin()
   }
 
   document.addEventListener('keyup', movePacman);
@@ -228,6 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(function() { alert('game over')} , 500)
     }
    
+  }
+
+  // check for a win
+  function checkForWin() {
+    if (score >= 274 ) {
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', movePacman)
+        setTimeout(function() { alert('you have won') , 500})
+    }
   }
 
 });
