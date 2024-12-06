@@ -1,3 +1,16 @@
 * {
-    
+
+}
+.grid {
+    width: 560px;
+    height: 560px;
+    background-color: blue;
+    border: 1px solid black;
+}
+
+.grid div {
+    width: 20px;
+    height: 20px;
+    border: solid black;
+    box-sizing: border-box;
 }
