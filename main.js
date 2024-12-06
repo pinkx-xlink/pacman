@@ -147,4 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[pacmanCurrentIndex].classList.remove('power-pellet')
     }
   }
+
+  // create ghosts using constructor 
+
+  class Ghosts {
+    constructor(className, startIndex, speed) {
+        this.className = className
+        this.startIndex = startIndex
+        this.speed = speedthis.currentIndex = startIndex
+        this.isScared = false
+        this.timerId = NaN
+    }
+  }
+  // all ghosts
+  ghosts = [
+    new Ghost ('blinky', 348, 250),
+    new Ghost ('pinky', 3376, 400),
+    new Ghost ('inky', 351, 300),
+    new Ghost ('clyde', 379, 500),
+  ]
+
 });
