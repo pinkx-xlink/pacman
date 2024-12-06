@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function createBoard() {
     for (let i = 0; i < layout.length; i++) {
         const square = document.createElement('div');
+        grid.appendChild(square);
     }
   }
+  createBoard()
 });
