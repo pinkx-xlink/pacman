@@ -3,6 +3,7 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: black;
+    color: white;
 }
 
 .grid {
@@ -12,7 +13,6 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
-
 .grid div {
     width: 20px;
     height: 20px;
@@ -35,27 +35,23 @@ body {
 .empty {
     background-color: black;
 }
+
 .blinky {
     background-color: red;
 }
-
 .pinky {
     background-color: pink;
 }
-
 .inky {
     background-color: cyan;
 }
-
 .clyde {
     background-color: orange;
 }
-
 .pac-man {
     background-color: rgb(255, 217, 0);
     border-radius: 10px;
 }
-
 .scared-ghost {
     background-color: aquamarine;
 }
