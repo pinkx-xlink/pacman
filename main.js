@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     squares[pacmanCurrentIndex].classList.add('pac-man');
     
+    powerPelletEaten();
     pacDotEaten();
     // checkForGameOver()
     // checkForWin()
@@ -136,6 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
         score++;
         scoreDisplay.innerHTML = score;
         squares[pacmanCurrentIndex].classList.remove('pac-dot')
+    }
+  }
+
+  function powerPelletEaten() {
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+        score+= 10
+        scoreDisplay.innerHTML = score;
+        squares[pacmanCurrentIndex].classList.remove('power-pellet')
     }
   }
 });
