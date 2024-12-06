@@ -88,6 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 pacmanCurrentIndex = 391
             }
             break
+        case 'ArrowUp':
+            if (
+                pacmanCurrentIndex - width >= 0 &&
+                !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
+                !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
+            ) {
+                pacmanCurrentIndex -=width
+            }
+            break
         case 'ArrowRight':
             if (
                 pacmanCurrentIndex % width < width - 1 &&
@@ -102,11 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 pacmanCurrentIndex = 364
             }
             break
-        case 'ArrowUp':
-            pacmanCurrentIndex -=width
-            break
         case 'ArrowDown':
-            pacmanCurrentIndex +=width
+            if (
+                pacmanCurrentIndex + width < width * width &&
+                !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
+                !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')
+            ) {
+                pacmanCurrentIndex +=width
+            }
             break
     }
     squares[pacmanCurrentIndex].classList.add('pac-man');
