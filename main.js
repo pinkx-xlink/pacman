@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // make ghosts unScared
+  // make ghosts unScared/stop flashing
   function unScareGhosts() {
     ghosts.forEach(ghost => ghost.isScared = false)
   }
@@ -210,8 +210,24 @@ document.addEventListener('DOMContentLoaded', () => {
       //if the ghost is scared and pac-man is on it
       if (ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) {
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+        ghost.currentIndex = ghost.startIndex
         score +=100
+        scoreDisplay.innerHTML = score
+        square[ghost.currentIndex].classList.add(ghost.className, 'ghost')
       }
+      checkForGameOver()
     }, ghost.speed)
   }
+
+  function checkForGameOver() {
+   if (
+    squares[pacmanCurrentIndex].classList.contains('ghost') &&
+    !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', movePacman)
+        setTimeout(function() { alert('game over')} , 500)
+    }
+   
+  }
+
 });
