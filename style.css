@@ -1,6 +1,10 @@
-* {
-
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
 }
+
 .grid {
     width: 560px;
     height: 560px;
@@ -17,7 +21,7 @@
 
 .pac-dot {
     background-color: green;
-    border: 5px solid white;
+    border: 5px solid black;
     box-sizing: border-box;
 }
 .wall {
@@ -26,6 +30,9 @@
 .power-pellet {
     background-color: green;
     border-radius: 10px;
+}
+.empty {
+    background-color: black;
 }
 .blinky {
     background-color: red;

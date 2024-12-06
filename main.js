@@ -63,7 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[i].classList.add('power-pellet');
       }
       // don't need to loop through 4 as they are empty
-        
+      if (layout[i] === 4) {
+        squares[i].classList.add('empty');
+      }
     }
   }
   createBoard();
