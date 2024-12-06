@@ -1,4 +1,6 @@
 # pacman
+![Packman project game interface](./img/dark-color-pallet-screenshot.png "Pacman Dark Theme")
+
 
 Base game:
 Made following this tutorial: 
