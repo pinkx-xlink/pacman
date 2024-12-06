@@ -195,13 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // if next square on ghost's path doesn't have a ghost or wall
       if (
         !squares[ghost.currentIndex + direction].classList.contains('ghost') &&
-            !squares[ghost.currentIndex + direction].classList.contains('wall')
+        !squares[ghost.currentIndex + direction].classList.contains('wall')
       ) {
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
         ghost.currentIndex += direction
         squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
         // else move in a new random direction    
-      } else direction = directions[Math.floor(Math.random() - directions.length)]
+      } else direction = directions[Math.floor(Math.random() * directions.length)]
 
       if (ghost.isScared) {
         squares[ghost.currentIndex].classList.add('scared-ghost')
