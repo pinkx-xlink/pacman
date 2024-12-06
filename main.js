@@ -177,11 +177,24 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // move ghostsr andomly
-  ghost.forEach(ghost => moveGhost(ghost))
+  ghosts.forEach(ghost => moveGhost(ghost))
 
   function moveGhost(ghost) {
     console.log(ghost)
     const directions = [-1, 1, width, -width]
-    const direction = directions[Math.floor(Math.random() - directions.length)]
+    let direction = directions[Math.floor(Math.random() * directions.length)]
+
+    ghost.timer = setInterval(function() {
+        // if next square on ghost's path doesn't have a ghost or wall
+        if (
+            !squares[ghost.currentIndex + direction].classList.contains('ghost') &&
+            !squares[ghost.currentIndex + direction].classList.contains('wall')
+        ) {
+        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost')
+        ghost.currentIndex += direction
+        squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+    // else move in a new random cirection    
+    } else direction = directions[Math.floor(Math.random() - directions.length)]
+    })
   }
 });
