@@ -20,15 +20,16 @@ body {
 }
 
 .pac-dot {
-    background-color: green;
-    border: 5px solid black;
+    background-color: rgb(245, 94, 237);
+    border: 8px solid black;
     box-sizing: border-box;
 }
 .wall {
     background-color: blue;
 }
 .power-pellet {
-    background-color: green;
+    background-image: url('./img/pixel-heart.gif');
+    background-size: 20px;
     border-radius: 10px;
 }
 .empty {
