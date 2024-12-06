@@ -144,8 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
         score+= 10
         scoreDisplay.innerHTML = score;
+        ghost.forEach(ghost => ghost.isScared = true)
+        setTimeout(unScareGhosts, 10000)
         squares[pacmanCurrentIndex].classList.remove('power-pellet')
     }
+  }
+
+  // make ghosts unScared
+  function unScareGhosts() {
+    ghosts.forEach(ghost => ghost.isScared = false)
   }
 
   // create ghosts using constructor 
@@ -184,17 +191,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const directions = [-1, 1, width, -width]
     let direction = directions[Math.floor(Math.random() * directions.length)]
 
-    ghost.timer = setInterval(function() {
+    ghost.timerId = setInterval(function() {
         // if next square on ghost's path doesn't have a ghost or wall
         if (
             !squares[ghost.currentIndex + direction].classList.contains('ghost') &&
             !squares[ghost.currentIndex + direction].classList.contains('wall')
         ) {
-        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost')
+        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
         ghost.currentIndex += direction
         squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
-    // else move in a new random cirection    
+    // else move in a new random direction    
     } else direction = directions[Math.floor(Math.random() - directions.length)]
-    })
+
+    if (ghost.isScared) {
+        squares[ghost.currentIndex].classList.add('scared-ghost')
+    }
+
+    //if the ghost is scared and pac-man is on it
+    if (ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) {
+        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+        score +=100
+    }
+    }, ghost.speed)
   }
 });
