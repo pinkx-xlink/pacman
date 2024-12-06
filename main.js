@@ -39,13 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2 - ghost lair
   // 3 - power pellet
   // 4 - empty
+  const squares = [];
 
   // create gameboard
   function createBoard() {
     for (let i = 0; i < layout.length; i++) {
         const square = document.createElement('div');
         grid.appendChild(square);
+        squares.push(square);
+
+        // add layout to the board
+        if (layout[i] === 0) {
+            squares[i].classList.add('pac-dot');
+        }
     }
   }
-  createBoard()
+  createBoard();
 });

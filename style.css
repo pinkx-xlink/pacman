@@ -16,3 +16,9 @@
     border: solid black;
     box-sizing: border-box;
 }
+
+.pac-dot {
+    background-color: green;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
